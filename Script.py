@@ -48,30 +48,34 @@ season_messages = {
 final_message = ''
 first = input('Zodiac Sign Please:')
 
-if first in zodiac_quotes:
-    print(zodiac_quotes[first])
-    second = input('Age Please:')
-    if int(second) <= 18 and int(second) <=40:
+def generate_message(user_input):
+    final_message = ''
+
+    if user_input in zodiac_quotes:
+      print(zodiac_quotes[first])
+      second = input('Age Please:')
+      if int(second) <= 18 and int(second) <=40:
         final_message += str(age_destiny_messages['18-40'])
         final_message += ' '
-    elif int(second) <= 41 and int(second) <=60:
+      elif int(second) <= 41 and int(second) <=60:
         final_message += age_destiny_messages['41-60']
         final_message += ' '
-    elif int(second) <= 61 and int(second) <=100:
+      elif int(second) <= 61 and int(second) <=100:
         final_message += age_destiny_messages['61+']
         final_message += ' '
-    else: 
+      else: 
         print('Destiny is out of your reach!')
-    third = input('Choose a number between 1 and 13:')
-    if int(third) in number_meanings:
+      third = input('Choose a number between 1 and 13:')
+      if int(third) in number_meanings:
         final_message += number_meanings[int(third)]
         final_message += ' '
-    fourth = input('Any favorite Season:')
-    if fourth in season_messages:
-        final_message += season_messages[fourth]
-        print(final_message)
-    else:
-        final_message += '!'
-        print(final_message)
+        fourth = input('Any favorite Season:')
+        if fourth in season_messages:
+          final_message += season_messages[fourth]
+          print(final_message)
+        else:
+          final_message += '!'
+          print(final_message)
 
     
+generate_message(first)
